@@ -7,6 +7,7 @@ import me from "./me.png"
 import disney from "./disney.png"
 import laundry from "./laundry.jpg"
 import laundry1 from "./laundry1.jpg"
+import cleaningLady2 from "./cleaningLady2.jpg"
 
 
 export {
@@ -18,5 +19,6 @@ export {
     me,
     disney,
     laundry,
-    laundry1
+    laundry1,
+    cleaningLady2
 }
