@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 export default function About() {
   return (
     <section className="bg-backdrop py-40 pt-48 md:pt-10">
-      <aside className="flex flex-col gap-4 md:flex-row md:items-center m-5">
+      <aside className="flex flex-col gap-4 md:flex-row md:items-center m-">
         <img
           src={me}
           alt="me"
-          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto ml-40 shadow-lg"
+          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto ml-8 md:ml-20 shadow-lg"
         />
         <div className="flex-1 flex flex-col items-start">
           <p className="py-2 px-2 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-xl w-max mx-auto">

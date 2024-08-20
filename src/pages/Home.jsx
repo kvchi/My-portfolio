@@ -56,9 +56,9 @@ export default function Home() {
       <section>
       <About />
       </section>
-      <section className=''>
+      <div className=''>
       <Services />
-      </section>
+      </div>
       <section className=''>
       <Projects />
       </section>
