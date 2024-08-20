@@ -2,7 +2,7 @@ import React from 'react'
 import ProgressBar from '@ramonak/react-progress-bar'
 export default function progressBar() {
   return (
-    <div className='z-50 items-center w-max p-10 gap-10 mx-auto md:mx-5'>
+    <div className='z-50 items-center w-max p-10 gap-10 md:mx-5'>
         <div className='w-96'>
         <p className="text-primary font-semibold">Html</p>
         <ProgressBar completed={85}

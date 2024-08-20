@@ -36,7 +36,7 @@ export default function About() {
               data-aos="fade-left"
               data-aos-delay="800"
               data-aos-duration="1000"
-              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-sm flex items-center gap-2 mx-auto"
+              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-sm flex items-center gap-2 mx-20"
               to={"/contact"}
             >
               Contact Me <IoArrowForward />
