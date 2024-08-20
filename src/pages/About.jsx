@@ -11,7 +11,7 @@ export default function About() {
         <img
           src={me}
           alt="me"
-          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto ml-8 md:ml-20 shadow-lg"
+          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto md:ml-20 shadow-lg"
         />
         <div className="flex-1 flex flex-col items-start">
           <p className="py-2 px-2 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-xl w-max mx-auto">
