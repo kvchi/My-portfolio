@@ -11,14 +11,14 @@ export const featuresData = [
 
     },
     {
-        id: "87650",
+        id: "87651",
         icon: <FaLaptopCode />,
         title: "Web Development",
          description: "With expertise in both front-end and back-end development, I build robust, scalable, and efficient web applications."
 
     },
     {
-        id: "87650",
+        id: "87652",
         icon: <IoCameraOutline />,
         title: "Photography",
          description: "My photography skills capture stunning visuals that tell compelling stories and create lasting impressions."

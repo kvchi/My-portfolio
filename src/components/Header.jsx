@@ -8,8 +8,12 @@ import { headerLinkData } from "../data/headerLinkData";
 
 export default function Header() {
   const { pathname } = useLocation();
-
   const [showNav, setShowNav] = useState(false);
+  
+
+  const toggleMenu = () => {
+    setShowNav((prev) =>!prev);
+  }
 
   return (
     <header className="relative p-4 bg-primary z-10 ">
@@ -22,7 +26,7 @@ export default function Header() {
         </Link>
         <nav
           className={`absolute md:static top-full ${
-            showNav ? "left-0" : "left-full"
+            showNav ? "left-0 z-20" : "left-full z-0"
           } w-full md:w-max flex flex-col md:flex-row md:gap-2 md:justify-center flex-1 transition-all duration-300 bg-primary`}
         >
           {headerLinkData.map((el) => {
@@ -30,6 +34,11 @@ export default function Header() {
               <Link
                 key={el.id}
                 to={el.url}
+                onClick={() => {
+                  setTimeout(() => {
+                    toggleMenu();
+                  }, 300);
+                }}
                 data-aos="fade-right"
               data-aos-delay="800"
               data-aos-duration="1000"

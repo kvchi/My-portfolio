@@ -17,8 +17,8 @@ export default function Contact() {
 
   return (
     <main className="bg-backdrop">
-       <section className='relative bg-backdrop flex items-center justify-center py-10 px-2 pt-52 md:pt-10'>
-       <div className='relative z-10 text-center text-primary '>
+       <section className='relative bg-backdrop flex items-center justify-center py-20 px-2  md:pt-10'>
+       <div className='relative z-0 text-center text-primary '>
        <h1 className='text-xl md:text-2xl font-bold mb-4 bg-primary text-green-200 inline-block p-2 rounded-sm'>CONTACT</h1>
        <p className='text-xl md:text-2xl text-center text-balance leading-relaxed'>We&apos;re here to answer any questions you may have about our services or to discuss how we can help you achieve your goals.Feel free to reach out to us using the form below or contact us directly via email or phone. We look forward to hearing from you!</p>
        </div>

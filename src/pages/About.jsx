@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <section className="bg-backdrop py-40 pt-48 md:pt-10">
-      <aside className="flex flex-col gap-4 md:flex-row md:items-center m-">
+    <section className="bg-backdrop py-20 pt-10 md:pt-10">
+      <aside className="flex flex-col gap-4 lg:flex-row md:items-center m-">
         <img
           src={me}
           alt="me"
-          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto md:ml-20 shadow-lg"
+          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto md:ml-20 shadow-lg mx-5 rounded-lg"
         />
         <div className="flex-1 flex flex-col items-start">
-          <p className="py-2 px-2 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-xl w-max mx-auto">
+          <p className="py-2 px-2 mt-10 lg:mt-4 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-xl w-max mx-auto">
             About Me.
           </p>
           <h3 className="text-2xl md:text-2xl font-bold text-primary mx-auto">
@@ -36,7 +36,7 @@ export default function About() {
               data-aos="fade-left"
               data-aos-delay="800"
               data-aos-duration="1000"
-              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-sm flex items-center gap-2 mx-20"
+              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-md flex items-center gap-2 mx-10 md:mx-auto lg:mx-10"
               to={"/contact"}
             >
               Contact Me <IoArrowForward />

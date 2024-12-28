@@ -9,14 +9,14 @@ export const contactLinkData = [
 
     },
     {
-        id: "98760",
+        id: "98761",
         icon: <MdOutlinePhoneInTalk />,
         title: "Call",
         description:"09166750338",
 
     },
     {
-        id: "98760",
+        id: "98762",
         icon: <MdOutlineMail />,
         title: "Email",
         description:"KvchiDcoder@gmail.com",
