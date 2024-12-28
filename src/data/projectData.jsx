@@ -1,4 +1,4 @@
-import { candles3, cleaningLady2, disney, laundry } from "../assets/Images";
+import { candle3, cleaningLady2, disney, laundry } from "../assets/Images";
 
 export const projectData = [
     {
@@ -25,7 +25,7 @@ export const projectData = [
     {
         id:"1249",
         title:"OfferingsbyMK",
-        image: candles3,
+        image: candle3,
         link: "https://offeringsby-mk.vercel.app/",
         external: true
     }
