@@ -8,6 +8,7 @@ import disney from "./disney.png"
 import laundry from "./laundry.jpg"
 import laundry1 from "./laundry1.jpg"
 import cleaningLady2 from "./cleaningLady2.jpg"
+import candles3 from "./candles3.jpg"
 
 
 export {
@@ -20,5 +21,6 @@ export {
     disney,
     laundry,
     laundry1,
-    cleaningLady2
+    cleaningLady2,
+    candles3
 }
