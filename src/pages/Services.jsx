@@ -10,7 +10,7 @@ export default function Services() {
     <p className='text-xl md:text-2xl text-center text-balance leading-relaxed mx-6 md:mx-3 lg:mx-0'>Welcome to my Services page! I offer a comprehensive suite of web development services designed to bring your vision to life. From custom website design and development to responsive web applications, I provide solutions that are tailored to meet your specific needs.</p>
     </div>
     </section>
-    <section className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 py-10">
+    <section className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 py-10">
      {featuresData.map((el,i) => ( <aside data-aos={i % 2 === 0 ? "zoom-in-left" : "zoom-out-right"} data-aos-delay={(i+1)*900} data-aos-duration="700" key={el.id} className="bg-backdrop p-4 md:p-6 rounded-md flex flex-col gap-4 md:gap-6 items-center text-center hover:-translate-y-4 border-2 border-primary/5 hover:border-primary/30">
              <span className="text-3xl md:text-5xl text-primary">
                {el.icon}
