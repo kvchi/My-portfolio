@@ -1,4 +1,4 @@
-import React from 'react'
+
 import code from '../assets/Images/code.jpg'
 import About from './About'
 import Contact from './Contact'

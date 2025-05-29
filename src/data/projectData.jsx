@@ -1,6 +1,13 @@
-import { candle3, cleaningLady2, disney, laundry } from "../assets/Images";
+import { candle3, cleaningLady2, disney, laundry, nexim } from "../assets/Images";
 
 export const projectData = [
+    {
+        id:"1255",
+        title:"Nexim Bank Website",
+        image: nexim,
+        link: "https://nexim-website.vercel.app/",
+        external: true
+    },
     {
         id:"1237",
         title:"Disney",
@@ -28,5 +35,6 @@ export const projectData = [
         image: candle3,
         link: "https://offeringsby-mk.vercel.app/",
         external: true
-    }
+    },
+    
 ]

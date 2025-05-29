@@ -19,7 +19,7 @@ export const contactLinkData = [
         id: "98762",
         icon: <MdOutlineMail />,
         title: "Email",
-        description:"KvchiDcoder@gmail.com",
+        description:"Jonathanmkpuma4@gmail.com",
 
     },
 ]

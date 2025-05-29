@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { contactLinkData } from '../data/contactLinkData'
 
 
@@ -49,7 +49,7 @@ export default function Contact() {
           </div>
           <div data-aos="fade-up" data-aos-delay="1400" className="flex items-center gap-1 border-b border-green-100 text-green-200 p-2">
             {/* <TbMailForward /> */}
-            <input type="email" value={inputs.email} name='email' onChange={handleChange} required placeholder='Kvchikvne@mail.com' className="flex-1 p-1 outline-none rounded-sm bg-backdrop" />
+            <input type="email" value={inputs.email} name='email' onChange={handleChange} required placeholder='JohnDoe@mail.com' className="flex-1 p-1 outline-none rounded-sm bg-backdrop" />
           </div>
           <div data-aos="fade-down" data-aos-delay="1000" className='flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
           {/* <MdOutlineLocationOn /> */}

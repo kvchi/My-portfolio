@@ -1,4 +1,4 @@
-import React from "react";
+
 import ProgressBar from "../components/ProgressBar";
 import { me } from "../assets/Images";
 import { IoArrowForward } from "react-icons/io5";
