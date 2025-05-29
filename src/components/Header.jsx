@@ -16,7 +16,7 @@ export default function Header() {
   }
 
   return (
-    <header className="relative p-4 bg-primary z-10 ">
+    <header className="fixed top-0 leeft-0 w-full p-4 bg-primary z-50 shadow-md ">
       <div className="container mx-auto flex justify-between items-center gap-4">
         <Link to={"/"} className="flex gap-1 items-center">
           <PiWebhooksLogoBold className="text-green-200 text-xl md:text-2xl" />
