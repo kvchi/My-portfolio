@@ -10,6 +10,12 @@ import laundry1 from "./laundry1.jpg"
 import cleaningLady2 from "./cleaningLady2.jpg"
 import candle3 from "./candle3.jpg"
 import nexim from "./nexim.png"
+import cssLogo from "./cssLogo.png"
+import htmlLogo from "./htmlLogo.png"
+import javaScriptLogo from "./javaScriptLogo.png"
+import nextjs from "./nextjs.png"
+import reactLogo from "./reactLogo.png"
+import tailwindcss from "./tailwindcss.png"
 
 
 export {
@@ -24,5 +30,11 @@ export {
     laundry1,
     cleaningLady2,
     candle3,
-    nexim
+    nexim,
+    cssLogo,
+    htmlLogo,
+    javaScriptLogo,
+    nextjs,
+    reactLogo,
+    tailwindcss
 }

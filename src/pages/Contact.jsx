@@ -40,7 +40,7 @@ export default function Contact() {
       </section>
       <div className=' container mx-auto flex relative justify-center items-center '>
 
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md bg-primary shadow-lg shadow-dark p-4">
+      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md bg-primary shadow-lg shadow-dark p-4 mb-8">
           <div data-aos="fade-up" data-aos-delay="1400" className='flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
           {/* <IoPersonOutline /> */}
           <input type="text" value={inputs.name} onChange={handleChange} required
