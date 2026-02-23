@@ -26,7 +26,7 @@ export const projectData = [
         id:"1239",
         title:"PureHaven",
         image: cleaningLady2,
-        link: "https://pure-haven.vercel.app/",
+        link: "https://purehaven-ruddy.vercel.app/",
         external: true
     },
     {
