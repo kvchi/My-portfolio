@@ -1,4 +1,4 @@
-import { candle3, cleaningLady2, disney, laundry, nexim } from "../assets/Images";
+import { candle3, cleaningLady2, disney, hero, laundry, nexim } from "../assets/Images";
 
 export const projectData = [
     {
@@ -36,5 +36,11 @@ export const projectData = [
         link: "https://offeringsby-mk.vercel.app/",
         external: true
     },
-    
+    {
+        id:"1241",
+        title:"Ecocontractors",
+        image: hero,
+        link: "https://ecocontractorsltd.com/",
+        external: true
+    },
 ]

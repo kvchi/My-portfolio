@@ -16,7 +16,7 @@ import javaScriptLogo from "./javaScriptLogo.png"
 import nextjs from "./nextjs.png"
 import reactLogo from "./reactLogo.png"
 import tailwindcss from "./tailwindcss.png"
-
+import hero from "./hero.png"
 
 export {
     coding,
@@ -36,5 +36,6 @@ export {
     javaScriptLogo,
     nextjs,
     reactLogo,
-    tailwindcss
+    tailwindcss,
+    hero
 }

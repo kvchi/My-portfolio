@@ -9,6 +9,7 @@ export default function Contact() {
     email: "",
     address: "",
     services: "",
+    message: "",
   })
 
   const handleChange = e => {
@@ -16,15 +17,15 @@ export default function Contact() {
   }
 
   return (
-    <main className="bg-backdrop">
-       <section className='relative bg-backdrop flex items-center justify-center py-20 px-2  md:pt-10'>
-       <div className='relative z-0 text-center text-primary '>
-       <h1 className='text-xl md:text-2xl font-bold mb-4 bg-primary text-green-200 inline-block p-2 rounded-sm'>CONTACT</h1>
-       <p className='text-xl md:text-2xl text-center text-balance leading-relaxed'>We&apos;re here to answer any questions you may have about our services or to discuss how we can help you achieve your goals.Feel free to reach out to us using the form below or contact us directly via email or phone. We look forward to hearing from you!</p>
+    <main className="bg-backdrop min-h-screen">
+       <section className='relative bg-backdrop flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6'>
+       <div className='relative z-0 text-center text-primary container mx-auto'>
+       <h1 className='text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-primary text-green-200 inline-block p-2 rounded-sm'>CONTACT</h1>
+       <p className='text-base sm:text-lg md:text-xl text-center text-balance leading-relaxed max-w-3xl mx-auto'>We&apos;re here to answer any questions you may have about our services or to discuss how we can help you achieve your goals.Feel free to reach out to us using the form below or contact us directly via email or phone. We look forward to hearing from you!</p>
        </div>
        </section>
-       <section className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 py-10 text-balance">
-        {contactLinkData.map((el,i) => ( <aside data-aos={i % 2 === 0 ? "zoom-in-left" : "zoom-out-right"} data-aos-delay={(i+1)*900} data-aos-duration="1000" key={el.id} className="bg-backdrop p-4 md:p-6 rounded-md flex flex-col gap-4 md:gap-6 items-center text-center hover:-translate-y-4 border-2 border-primary/5 hover:border-primary/30">
+       <section className="container mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 py-8 md:py-12 text-balance">
+        {contactLinkData.map((el,i) => ( <aside data-aos={i % 2 === 0 ? "zoom-in-left" : "zoom-out-right"} data-aos-delay={(i+1)*200} data-aos-duration="600" key={el.id} className="bg-backdrop p-4 sm:p-5 md:p-6 rounded-lg flex flex-col gap-3 md:gap-4 items-center text-center hover:-translate-y-2 sm:hover:-translate-y-3 border-2 border-primary/10 hover:border-primary/30 transition-transform">
                 <span className="text-3xl md:text-5xl text-primary">
                   {el.icon}
                 </span>
@@ -38,12 +39,12 @@ export default function Contact() {
               ))}
                 
       </section>
-      <div className=' container mx-auto flex relative justify-center items-center '>
+      <div className="container mx-auto flex relative justify-center items-center px-4 sm:px-6 pb-12">
 
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md bg-primary shadow-lg shadow-dark p-4 mb-8">
+      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-lg bg-primary shadow-lg shadow-dark p-4 sm:p-6 rounded-lg mb-8">
           <div data-aos="fade-up" data-aos-delay="1400" className='flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
           {/* <IoPersonOutline /> */}
-          <input type="text" value={inputs.name} onChange={handleChange} required
+          <input type="text" name="name" value={inputs.name} onChange={handleChange} required
           placeholder='Name e.g Kvchi'
           className='flex-1 p-1 outline-none bg-backdrop rounded-sm' />
           </div>
@@ -53,18 +54,18 @@ export default function Contact() {
           </div>
           <div data-aos="fade-down" data-aos-delay="1000" className='flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
           {/* <MdOutlineLocationOn /> */}
-          <input type="text" value={inputs.address} onChange={handleChange} required
+          <input type="text" name="address" value={inputs.address} onChange={handleChange} required
           placeholder='e.g FCT,Abuja Jikwoyi Phase 3'
           className='flex-1 p-1 outline-none rounded-sm bg-backdrop' />
           </div>
           <div data-aos="fade-down" data-aos-delay="1000" className='flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
           {/* <LiaLaptopCodeSolid  /> */}
-          <input type="text" value={inputs.services} onChange={handleChange} required
+          <input type="text" name="services" value={inputs.services} onChange={handleChange} required
           placeholder='e.g web devlopment'
           className='flex-1 p-1 outline-none rounded-sm bg-backdrop' />
           </div>
           <div data-aos="fade-down" data-aos-delay="1000" className='col-span-1 md:col-span-2 flex items-center gap-1 border-b border-green-100 text-green-200 p-2'>
-      <textarea value={inputs.message} onChange={handleChange} required
+      <textarea name="message" value={inputs.message} onChange={handleChange} required
         placeholder='Enter your message here...'
         className='flex-1 p-1 outline-none bg-backdrop rounded-sm resize-none' rows="5"></textarea>
     </div>

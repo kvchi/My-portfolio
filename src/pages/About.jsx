@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <section className="bg-backdrop py-20 pt-10 md:pt-10">
-      <aside className="flex flex-col gap-4 lg:flex-row md:items-center m-">
+    <section id="about" className="bg-backdrop py-12 sm:py-16 md:py-20 scroll-mt-24">
+      <aside className="flex flex-col gap-6 lg:flex-row lg:items-center container mx-auto px-4 sm:px-6">
         <img
           src={me}
           alt="me"
-          className="object-cover bg-primary -scale-x-100 md:h-full md:w-auto md:ml-20 shadow-lg mx-5 rounded-lg"
+          className="object-cover bg-primary -scale-x-100 w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-12 xl:ml-20 lg:w-auto lg:max-w-none shadow-lg rounded-lg"
         />
-        <div className="flex-1 flex flex-col items-start">
-          <p className="py-2 px-2 mt-10 lg:mt-4 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-xl w-max mx-auto">
+        <div className="flex-1 flex flex-col items-start w-full max-w-2xl mx-auto lg:mx-0">
+          <p className="py-2 px-3 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-lg w-max">
             About Me.
           </p>
-          <h3 className="text-2xl md:text-2xl font-bold text-primary mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold text-primary">
             WEB DEVELOPER 
           </h3>
-          <p className="text-primary max-w-screen-md mt-4 p-4 text-balance">
+          <p className="text-primary text-sm sm:text-base mt-4 p-2 sm:p-4 text-balance">
             I am a passionate and dedicated web developer with a strong focus on
             creating dynamic and responsive user interfaces using React.js. My
             expertise extends to backend development, where I leverage robust
@@ -36,7 +36,7 @@ export default function About() {
               data-aos="fade-left"
               data-aos-delay="800"
               data-aos-duration="1000"
-              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-md flex items-center gap-2 mx-10 md:mx-auto lg:mx-10"
+              className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-md flex items-center gap-2 mt-2"
               to={"/contact"}
             >
               Contact Me <IoArrowForward />
