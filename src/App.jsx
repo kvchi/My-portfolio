@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import { useEffect } from 'react';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css"
@@ -21,13 +21,14 @@ export default function App() {
   }, [])
 
 
-  function PageOutlet(){
-
+  function PageOutlet() {
     return (
       <>
-      <Header />
-      <Outlet />
-      <Footer />
+        <Header />
+        <div className="pt-16 sm:pt-[72px]">
+          <Outlet />
+        </div>
+        <Footer />
       </>
     )
   }
@@ -61,9 +62,11 @@ const Routes = createBrowserRouter([
     ],
     errorElement: (
       <>
-      <Header />
-      <Error />
-      <Footer />
+        <Header />
+        <div className="pt-16 sm:pt-[72px]">
+          <Error />
+        </div>
+        <Footer />
       </>
     ),
   },
@@ -75,4 +78,3 @@ return (
   </div>
 )
 }
-

@@ -4,12 +4,7 @@ import { coding2 } from "../assets/Images";
 import { Link } from "react-router-dom";
 import { PiWebhooksLogoBold } from "react-icons/pi";
 import { footerLinkData } from "../data/footerLinkData";
-import {
-  IoLogoFacebook,
-  IoLogoInstagram,
-  IoLogoTwitter,
-  IoLogoYoutube,
-} from "react-icons/io";
+import { socialLinkData } from "../data/socialLinkData";
 
 export default function Footer() {
   return (
@@ -36,57 +31,37 @@ export default function Footer() {
           development.
         </p>
         <div className="flex gap-4 text-lg md:text-2xl text-green-200 opacity-90">
-          <a
-            href="https://www.facebook.com/chedres"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="leading-loose hover:scale-110 transition-transform"
-            aria-label="Facebook"
-          >
-            <IoLogoFacebook />
-          </a>
-          <a
-            href="https://www.twitter.com/chedres"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="leading-loose hover:scale-110 transition-transform"
-            aria-label="Twitter"
-          >
-            <IoLogoTwitter />
-          </a>
-          <a
-            href="https://www.instagram.com/chedres"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="leading-loose hover:scale-110 transition-transform"
-            aria-label="Instagram"
-          >
-            <IoLogoInstagram />
-          </a>
-          <a
-            href="https://www.youtube.com/chedres"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="leading-loose hover:scale-110 transition-transform"
-            aria-label="YouTube"
-          >
-            <IoLogoYoutube />
-          </a>
+          {socialLinkData.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              target={link.newTab ? "_blank" : undefined}
+              rel={link.newTab ? "noopener noreferrer" : undefined}
+              className="w-11 h-11 flex items-center justify-center rounded-sm hover:scale-110 transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-100"
+              aria-label={link.ariaLabel}
+            >
+              {link.icon}
+            </a>
+          ))}
         </div>
         </div>
         <div className="flex flex-col pt-4 md:pt-0 md:pl-8 lg:pl-14">
           {
-            footerLinkData.slice(0, 4).map(el => <Link key={el.id} to={el.link} 
-                className='flex items-center text-green-200 text-base md:text-lg hover:translate-x-2 py-1 px-2'>
+            footerLinkData.map(el => <Link key={el.id} to={el.link}
+                className='flex items-center text-green-200 text-base md:text-lg hover:translate-x-2 py-1 px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-100'>
                     {el.icon}
                 <span className='ml-2'>{ el.title }</span></Link>)
           }
         </div>
         <div className="flex flex-col pt-4 md:pt-0 md:pl-8 lg:pl-14">
           {
-            footerLinkData.slice(4).map(el => <Link target="_blank" rel="noopener noreferrer" key={el.id} to={el.link} 
-                className='flex items-center text-green-200 text-base md:text-lg hover:translate-x-2 py-1 px-2'>
-                    {el.icon}<span className='ml-2'>{ el.title }</span></Link>)
+            socialLinkData.map(el => <a
+                key={el.id}
+                href={el.href}
+                target={el.newTab ? "_blank" : undefined}
+                rel={el.newTab ? "noopener noreferrer" : undefined}
+                className='flex items-center text-green-200 text-base md:text-lg hover:translate-x-2 py-1 px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-100'>
+                    {el.icon}<span className='ml-2'>{ el.title }</span></a>)
           }
         </div>
       </div>

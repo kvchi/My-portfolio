@@ -1,6 +1,5 @@
 import  { useState } from "react";
 import { PiWebhooksLogoBold } from "react-icons/pi";
-import { MdOutlineSearch } from "react-icons/md";
 import { RiMenu4Line } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import { headerLinkData } from "../data/headerLinkData";
@@ -10,10 +9,6 @@ export default function Header() {
   const { pathname } = useLocation();
   const [showNav, setShowNav] = useState(false);
   
-
-  const toggleMenu = () => {
-    setShowNav((prev) =>!prev);
-  }
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full px-4 py-3 sm:p-4 bg-primary z-50 shadow-md">
@@ -25,8 +20,9 @@ export default function Header() {
           </h1>
         </Link>
         <nav
-          className={`absolute md:static top-full left-0 right-0 md:left-auto md:right-auto w-full md:w-max flex flex-col md:flex-row md:gap-2 md:justify-center flex-1 transition-all duration-300 bg-primary md:bg-transparent py-2 md:py-0 shadow-lg md:shadow-none ${
-            showNav ? "left-0 z-20" : "left-full md:left-auto -z-10 md:z-auto"
+          id="primary-navigation"
+          className={`absolute md:static top-full left-0 right-0 md:left-auto md:right-auto w-full md:w-max flex-col md:flex-row md:gap-2 md:justify-center flex-1 bg-primary md:bg-transparent py-2 md:py-0 shadow-lg md:shadow-none ${
+            showNav ? "flex" : "hidden md:flex"
           }`}
         >
           {headerLinkData.map((el) => {
@@ -34,15 +30,11 @@ export default function Header() {
               <Link
                 key={el.id}
                 to={el.url}
-                onClick={() => {
-                  setTimeout(() => {
-                    toggleMenu();
-                  }, 300);
-                }}
+                onClick={() => setShowNav(false)}
                 data-aos="fade-right"
               data-aos-delay="800"
               data-aos-duration="1000"
-                className={`py-3 px-4 sm:px-6 md:py-2 md:px-4 ${
+                className={`py-3 px-4 sm:px-6 md:py-2 md:px-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-100 ${
                   el.url === pathname
                     ? "text-green-200"
                     : "text-green-200 dark:text-green-100"
@@ -55,15 +47,16 @@ export default function Header() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full flex justify-center items-center cursor-pointer hover:bg-backdrop text-green-200 text-xl dark:text-green-100">
-            <MdOutlineSearch />
-          </div>
-          <div
+          <button
+            type="button"
             onClick={() => setShowNav(!showNav)}
-            className="w-8 h-8 rounded-sm flex md:hidden justify-center items-center cursor-pointer border border-green-300 bg-green-100 text-primary text-xl dark:bg-dark dark:text-green-100"
+            aria-label={showNav ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={showNav}
+            aria-controls="primary-navigation"
+            className="w-10 h-10 rounded-sm flex md:hidden justify-center items-center border border-green-300 bg-green-100 text-primary text-xl dark:bg-dark dark:text-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-100"
           >
             <RiMenu4Line />
-          </div>
+          </button>
           
         </div>
       </div>

@@ -14,7 +14,7 @@ export const featuresData = [
         id: "87651",
         icon: <FaLaptopCode />,
         title: "Web Development",
-         description: "With expertise in both front-end and back-end development, I build robust, scalable, and efficient web applications."
+         description: "I build responsive React interfaces and have delivered full-stack projects that connect those experiences to server-side services."
 
     },
     

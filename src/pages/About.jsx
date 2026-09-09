@@ -23,11 +23,8 @@ export default function About() {
           <p className="text-primary text-sm sm:text-base mt-4 p-2 sm:p-4 text-balance">
             I am a passionate and dedicated web developer with a strong focus on
             creating dynamic and responsive user interfaces using React.js. My
-            expertise extends to backend development, where I leverage robust
-            technologies to build secure and efficient server-side applications.
-            Additionally, I have substantial experience in database creation and
-            management, ensuring that data integrity and performance are always
-            at the forefront of my projects. With a keen eye for detail and a
+            project experience also includes delivering full-stack applications
+            and working with server-side and database technologies. With a keen eye for detail and a
             commitment to continuous learning, I strive to deliver high-quality
             web solutions that meet and exceed client expectations.
           </p>
