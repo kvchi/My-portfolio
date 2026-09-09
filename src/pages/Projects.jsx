@@ -3,12 +3,11 @@ import { projectData } from '../data/projectData'
 
 
 
-export default function Projects() {
+function renderProjects(Heading) {
   return (
-    <main className="bg-backdrop z-0 min-h-screen">
-    <section id="projects" className='relative bg-backdrop flex items-center py-12 sm:py-16 md:py-20 scroll-mt-24'>
+    <section id="projects" aria-labelledby="projects-heading" className='relative bg-backdrop flex items-center py-12 sm:py-16 md:py-20'>
     <div className='relative z-0 text-center text-primary w-full container mx-auto px-4 sm:px-6'>
-    <h1 className='text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-primary text-green-200 inline-block p-2 rounded-sm'>PROJECTS.</h1>
+    <Heading id="projects-heading" data-section-heading tabIndex="-1" className='section-heading-focus text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-primary text-green-200 inline-block p-2 rounded-sm'>PROJECTS.</Heading>
     <p className='text-base sm:text-lg md:text-xl text-center text-balance leading-relaxed mx-2 sm:mx-4 md:mx-6'>  Welcome to my Projects section! Here, you&apos;ll find a curated selection of my recent work, showcasing a diverse range of web development projects. Each project highlights my skills in front-end development, user experience design, and problem-solving. Click on any project title to explore the live version and see the code in action.</p>
     <section className="container mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 py-8 md:py-12">
         {
@@ -33,6 +32,13 @@ export default function Projects() {
     </section>
     </div>
     </section>
-    </main>
   )
+}
+
+export function ProjectsSection() {
+  return renderProjects("h2");
+}
+
+export default function Projects() {
+  return <main className="bg-backdrop z-0 min-h-screen">{renderProjects("h1")}</main>;
 }

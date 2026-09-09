@@ -4,9 +4,9 @@ import { me } from "../assets/Images";
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-export default function About() {
+function renderAbout(Heading) {
   return (
-    <section id="about" className="bg-backdrop py-12 sm:py-16 md:py-20 scroll-mt-24">
+    <section id="about" aria-labelledby="about-heading" className="bg-backdrop py-12 sm:py-16 md:py-20">
       <aside className="flex flex-col gap-6 lg:flex-row lg:items-center container mx-auto px-4 sm:px-6">
         <img
           src={me}
@@ -17,9 +17,9 @@ export default function About() {
           <p className="py-2 px-3 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-lg w-max">
             About Me.
           </p>
-          <h3 className="text-xl sm:text-2xl font-bold text-primary">
+          <Heading id="about-heading" data-section-heading tabIndex="-1" className="section-heading-focus text-xl sm:text-2xl font-bold text-primary">
             WEB DEVELOPER 
-          </h3>
+          </Heading>
           <p className="text-primary text-sm sm:text-base mt-4 p-2 sm:p-4 text-balance">
             I am a passionate and dedicated web developer with a strong focus on
             creating dynamic and responsive user interfaces using React.js. My
@@ -34,7 +34,7 @@ export default function About() {
               data-aos-delay="800"
               data-aos-duration="1000"
               className="w-max py-2 px-4 md:px-6 bg-dark border border-dark/80 hover:bg-white text-green-200 hover:text-dark/80 text-sm rounded-md flex items-center gap-2 mt-2"
-              to={"/contact"}
+              to="/#contact"
             >
               Contact Me <IoArrowForward />
             </Link>
@@ -43,4 +43,12 @@ export default function About() {
       </aside>
     </section>
   );
+}
+
+export function AboutSection() {
+  return renderAbout("h2");
+}
+
+export default function About() {
+  return <main className="bg-backdrop min-h-screen">{renderAbout("h1")}</main>;
 }
