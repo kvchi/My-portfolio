@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 
 export default function Error() {
   return (
-    <main className="bg-backdrop min-h-[60vh] flex items-center justify-center px-4 py-12">
+    <main id="main-content" className="bg-backdrop min-h-[60vh] flex items-center justify-center px-4 py-12">
       <section className="text-center text-primary max-w-xl">
         <p className="uppercase font-bold tracking-wider text-sm mb-2">404 error</p>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Page not found</h1>
+        <h1 data-page-heading tabIndex="-1" className="section-heading-focus text-3xl sm:text-4xl font-bold mb-4">Page not found</h1>
         <p className="mb-6">The page you requested does not exist or may have moved.</p>
         <Link
           to="/"

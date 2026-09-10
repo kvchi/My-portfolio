@@ -8,10 +8,10 @@ function renderProjectActions(title, liveUrl, sourceUrl, compact = false) {
   return (
     <div className={`flex flex-col sm:flex-row flex-wrap gap-3 ${compact ? "mt-auto pt-4" : "mt-6"}`}>
       <a href={liveUrl} target="_blank" rel="noopener noreferrer" className={`${actionClass} motion-action project-action gap-2 bg-primary text-green-100 hover:bg-dark focus-visible:outline-primary`}>
-        Live demo<span className="sr-only"> for {title}</span><IoArrowForward className="action-arrow" aria-hidden="true" />
+        Live demo<span className="sr-only"> for {title} (opens in a new tab)</span><IoArrowForward className="action-arrow" aria-hidden="true" />
       </a>
       <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className={`${actionClass} motion-action project-action gap-2 border border-primary text-primary hover:bg-primary/10 focus-visible:outline-primary`}>
-        Source code<span className="sr-only"> for {title}</span><IoArrowForward className="action-arrow" aria-hidden="true" />
+        Source code<span className="sr-only"> for {title} (opens in a new tab)</span><IoArrowForward className="action-arrow" aria-hidden="true" />
       </a>
     </div>
   );
@@ -25,8 +25,8 @@ function renderProjects(Heading) {
     <section id="projects" aria-labelledby="projects-heading" className="relative bg-backdrop py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6">
         <Reveal className="max-w-3xl text-center mx-auto text-primary">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary/70 mb-2">Project proof</p>
-          <Heading id="projects-heading" data-section-heading tabIndex="-1" className="section-heading-focus text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Featured case study and selected projects</Heading>
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary mb-2">Project proof</p>
+          <Heading id="projects-heading" data-page-heading={Heading === "h1" ? true : undefined} data-section-heading tabIndex="-1" className="section-heading-focus text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Featured case study and selected projects</Heading>
           <p className="text-base sm:text-lg leading-relaxed">A closer look at my strongest end-to-end project, followed by concise examples of frontend work. Learning exercises and interface recreations are labelled clearly.</p>
         </Reveal>
 
@@ -37,7 +37,7 @@ function renderProjects(Heading) {
               <span className="absolute left-4 top-4 rounded-full bg-dark/90 px-3 py-2 text-sm font-bold text-green-100">Featured case study</span>
             </Reveal>
             <Reveal variant="fade-left" delay={70} className="p-5 sm:p-8 lg:p-10 text-primary">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary/70">{featuredProject.status}</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{featuredProject.status}</p>
               <ProjectHeading className="mt-2 text-2xl sm:text-3xl font-bold text-balance">{featuredProject.title}</ProjectHeading>
               <p className="mt-4 text-base sm:text-lg leading-relaxed">{featuredProject.summary}</p>
               <p className="mt-4 leading-relaxed"><strong>My role:</strong> {featuredProject.role}</p>
@@ -60,7 +60,7 @@ function renderProjects(Heading) {
 
         <section aria-labelledby="selected-projects-heading" className="mt-14 md:mt-20">
           <Reveal className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary/70 mb-2">Selected projects</p>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary mb-2">Selected projects</p>
             <ProjectHeading id="selected-projects-heading" className="text-2xl sm:text-3xl font-bold text-primary">Additional interface work</ProjectHeading>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mt-8">
@@ -96,5 +96,5 @@ export function ProjectsSection() {
 }
 
 export default function Projects() {
-  return <main className="bg-backdrop z-0 min-h-screen">{renderProjects("h1")}</main>;
+  return <main id="main-content" className="bg-backdrop z-0 min-h-screen">{renderProjects("h1")}</main>;
 }

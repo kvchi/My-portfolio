@@ -25,6 +25,8 @@ const frontendIcons = [htmlLogo, cssLogo, javaScriptLogo, reactLogo, tailwindcss
 // Heading is supplied by the parent so the embedded and standalone About views keep a logical hierarchy.
 // eslint-disable-next-line react/prop-types
 export default function ProgressBar({ Heading = "h2" }) {
+  const GroupHeading = Heading === "h2" ? "h3" : "h4";
+
   return (
     <section aria-labelledby="skills-heading" className="z-10 w-full py-8 sm:py-10">
       <div className="flex items-center justify-between gap-4 mb-6">
@@ -38,7 +40,7 @@ export default function ProgressBar({ Heading = "h2" }) {
       <div className="grid sm:grid-cols-2 gap-4">
         {skillGroups.map((group, index) => (
           <Reveal as="section" key={group.title} delay={index * 70} className="rounded-lg border border-primary/15 bg-white/50 p-4 sm:p-5">
-            <h3 className="font-bold text-primary mb-3">{group.title}</h3>
+            <GroupHeading className="font-bold text-primary mb-3">{group.title}</GroupHeading>
             <ul className="flex flex-wrap gap-2" aria-label={`${group.title} skills`}>
               {group.skills.map((skill) => (
                 <li key={skill} className="rounded-full bg-primary/10 text-primary px-3 py-1.5 text-sm font-medium">{skill}</li>

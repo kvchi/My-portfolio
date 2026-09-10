@@ -5,7 +5,7 @@ export const socialLinkData = [
   {
     id: "github",
     title: "GitHub",
-    ariaLabel: "Jonathan Mkpuma on GitHub",
+    ariaLabel: "Jonathan Mkpuma on GitHub (opens in a new tab)",
     href: "https://github.com/kvchi",
     icon: <FaGithub />,
     newTab: true,
@@ -13,7 +13,7 @@ export const socialLinkData = [
   {
     id: "linkedin",
     title: "LinkedIn",
-    ariaLabel: "Jonathan Mkpuma on LinkedIn",
+    ariaLabel: "Jonathan Mkpuma on LinkedIn (opens in a new tab)",
     href: "https://www.linkedin.com/in/jonathan-mkpuma-418053274",
     icon: <FaLinkedinIn />,
     newTab: true,

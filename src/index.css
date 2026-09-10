@@ -14,11 +14,43 @@ html, body {
   overflow-x: clip;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  background: #e3fef7;
+  color: #003c43;
+  font-weight: 700;
+  transform: translateY(calc(-100% - 1rem));
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #003c43;
+}
+
 #home,
 #about,
 #what-i-do,
 #projects,
 #contact {
+  scroll-margin-top: calc(var(--site-header-height) + 1rem);
+}
+
+#main-content,
+.section-heading-focus {
   scroll-margin-top: calc(var(--site-header-height) + 1rem);
 }
 
@@ -558,6 +590,14 @@ html, body {
   }
 }
 
+@media (max-height: 700px) {
+  .what-i-do-card {
+    position: relative;
+    top: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -573,6 +613,7 @@ html, body {
   }
 
   .mobile-nav,
+  .skip-link,
   .nav-link,
   .nav-link::after,
   .motion-action,

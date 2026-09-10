@@ -25,7 +25,7 @@ function renderAbout(Heading) {
             <p className="py-2 px-3 text-green-200 bg-primary rounded-sm uppercase font-bold text-sm md:text-lg w-max">
               About Me.
             </p>
-            <Heading id="about-heading" data-section-heading tabIndex="-1" className="section-heading-focus text-xl sm:text-2xl font-bold text-primary">
+            <Heading id="about-heading" data-page-heading={Heading === "h1" ? true : undefined} data-section-heading tabIndex="-1" className="section-heading-focus text-xl sm:text-2xl font-bold text-primary">
               FRONTEND DEVELOPER
             </Heading>
             <div className="text-primary text-base mt-4 p-2 sm:p-4 space-y-4 leading-relaxed">
@@ -54,5 +54,5 @@ export function AboutSection() {
 }
 
 export default function About() {
-  return <main className="bg-backdrop min-h-screen">{renderAbout("h1")}</main>;
+  return <main id="main-content" className="bg-backdrop min-h-screen">{renderAbout("h1")}</main>;
 }

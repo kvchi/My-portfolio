@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiWebhooksLogoBold } from "react-icons/pi";
 import { RiMenu4Line } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +9,7 @@ import Reveal, { revealSection } from "./Reveal";
 export default function Header() {
   const { pathname, hash } = useLocation();
   const [showNav, setShowNav] = useState(false);
+  const menuButtonRef = useRef(null);
   const [desktopNavigation, setDesktopNavigation] = useState(() =>
     window.matchMedia("(min-width: 768px)").matches,
   );
@@ -17,10 +18,26 @@ export default function Header() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    const updateNavigationMode = (event) => setDesktopNavigation(event.matches);
+    const updateNavigationMode = (event) => {
+      setDesktopNavigation(event.matches);
+      if (event.matches) setShowNav(false);
+    };
     mediaQuery.addEventListener("change", updateNavigationMode);
     return () => mediaQuery.removeEventListener("change", updateNavigationMode);
   }, []);
+
+  useEffect(() => {
+    if (!showNav || desktopNavigation) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key !== "Escape") return;
+      setShowNav(false);
+      menuButtonRef.current?.focus();
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [showNav, desktopNavigation]);
 
   const scrollToCurrentSection = (event, sectionHash) => {
     setShowNav(false);
@@ -43,19 +60,23 @@ export default function Header() {
   return (
     <Reveal as="header" variant="header" duration={420} immediate={skipHeaderEntrance} className="fixed top-0 left-0 right-0 w-full px-4 py-3 sm:p-4 bg-primary z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center gap-2 sm:gap-4">
-        <Link to="/#home" className="flex gap-1 items-center min-w-0" onClick={() => setShowNav(false)}>
-          <PiWebhooksLogoBold className="text-green-200 text-lg sm:text-xl md:text-2xl shrink-0" />
-          <span className="text-secondary font-bold text-lg sm:text-xl md:text-2xl truncate">
+        <Link to="/#home" aria-label="KvchiDcoder home" className="flex min-h-11 gap-1 items-center min-w-0" onClick={() => setShowNav(false)}>
+          <PiWebhooksLogoBold aria-hidden="true" className="text-green-200 text-lg sm:text-xl md:text-2xl shrink-0" />
+          <span className="text-green-100 font-bold text-lg sm:text-xl md:text-2xl truncate">
             KvchiDcoder
           </span>
         </Link>
         <nav
           id="primary-navigation"
+          aria-label="Primary navigation"
           aria-hidden={navIsHidden || undefined}
           className={`mobile-nav absolute md:static top-full left-0 right-0 md:left-auto md:right-auto w-full md:w-max flex md:flex flex-col md:flex-row md:gap-2 md:justify-center flex-1 bg-primary md:bg-transparent py-2 md:py-0 shadow-lg md:shadow-none ${showNav ? "mobile-nav--open" : ""}`}
         >
           {headerLinkData.map((el) => {
-            const isActive = pathname === "/" && (hash || "#home") === el.hash;
+            const standalonePath = el.hash === "#what-i-do" ? "/services" : `/${el.hash.slice(1)}`;
+            const isActive = pathname === "/"
+              ? (hash || "#home") === el.hash
+              : pathname === standalonePath;
 
             return (
               <Link
@@ -79,6 +100,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setShowNav(!showNav)}
             aria-label={showNav ? "Close navigation menu" : "Open navigation menu"}
