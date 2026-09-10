@@ -28,7 +28,7 @@ export const footerLinkData = [
     {
         id:"2465",
         icon: <LiaLaptopCodeSolid />,
-        title:"Services",
+        title:"Capabilities",
         link: "/services",
         external: false
     },

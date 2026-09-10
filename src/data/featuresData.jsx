@@ -6,15 +6,15 @@ export const featuresData = [
     {
         id: "87650",
         icon: <GrPieChart />,
-        title: "Web Design",
-        description: "I specialize in creating visually appealing and user-friendly web designs that enhance user experience and engagement.",
+        title: "Responsive interface design",
+        description: "I shape clear layouts and interaction patterns that adapt across mobile and desktop screens.",
 
     },
     {
         id: "87651",
         icon: <FaLaptopCode />,
-        title: "Web Development",
-         description: "I build responsive React interfaces and have delivered full-stack projects that connect those experiences to server-side services."
+        title: "Frontend development",
+         description: "I build accessible React interfaces and connect them to REST APIs, with full-stack delivery demonstrated through projects."
 
     },
     

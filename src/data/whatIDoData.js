@@ -7,7 +7,7 @@ export const whatIDoData = [
     label: "Frontend development",
     heading: "Accessible, responsive interfaces built for real users.",
     description:
-      "I build React interfaces with JavaScript and TypeScript, reusable components, thoughtful state management, responsive layouts, accessibility, and REST API integration.",
+      "I build React interfaces with JavaScript, reusable components, thoughtful state management, responsive layouts, accessibility, and REST API integration.",
     highlights: ["React interfaces", "Reusable components", "Accessible interaction"],
     visual: {
       type: "image",

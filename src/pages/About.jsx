@@ -5,12 +5,16 @@ import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 function renderAbout(Heading) {
+  const SkillsHeading = Heading === "h1" ? "h2" : "h3";
+
   return (
     <section id="about" aria-labelledby="about-heading" className="bg-backdrop py-12 sm:py-16 md:py-20">
-      <aside className="flex flex-col gap-6 lg:flex-row lg:items-center container mx-auto px-4 sm:px-6">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-center container mx-auto px-4 sm:px-6">
         <img
           src={me}
-          alt="me"
+          width="447"
+          height="559"
+          alt="Portrait of Jonathan Mkpuma"
           className="object-cover bg-primary -scale-x-100 w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-12 xl:ml-20 lg:w-auto lg:max-w-none shadow-lg rounded-lg"
         />
         <div className="flex-1 flex flex-col items-start w-full max-w-2xl mx-auto lg:mx-0">
@@ -18,17 +22,15 @@ function renderAbout(Heading) {
             About Me.
           </p>
           <Heading id="about-heading" data-section-heading tabIndex="-1" className="section-heading-focus text-xl sm:text-2xl font-bold text-primary">
-            WEB DEVELOPER 
+            FRONTEND DEVELOPER
           </Heading>
-          <p className="text-primary text-sm sm:text-base mt-4 p-2 sm:p-4 text-balance">
-            I am a passionate and dedicated web developer with a strong focus on
-            creating dynamic and responsive user interfaces using React.js. My
-            project experience also includes delivering full-stack applications
-            and working with server-side and database technologies. With a keen eye for detail and a
-            commitment to continuous learning, I strive to deliver high-quality
-            web solutions that meet and exceed client expectations.
-          </p>
-            <ProgressBar />
+          <div className="text-primary text-base mt-4 p-2 sm:p-4 space-y-4 leading-relaxed">
+            <p>I focus on frontend development with React and JavaScript, shaping reusable interfaces that stay clear, responsive, and usable across devices.</p>
+            <p>I pay attention to semantic structure, keyboard access, responsive images, and performance. I also connect interfaces to REST APIs and handle the loading, error, authentication, and data states that make a user journey dependable.</p>
+            <p>Through projects such as ShopSphare, I have delivered end-to-end work with Node.js, Express, databases, payments, transactional email, automated testing, and cloud deployment. This is demonstrated project experience, while frontend development remains my primary focus.</p>
+            <p>I am seeking a frontend role where I can contribute thoughtful React work, learn from a strong team, and help build reliable experiences for real users.</p>
+          </div>
+            <ProgressBar Heading={SkillsHeading} />
             <Link
               data-aos="fade-left"
               data-aos-delay="800"
@@ -40,7 +42,7 @@ function renderAbout(Heading) {
             </Link>
           
         </div>
-      </aside>
+      </div>
     </section>
   );
 }

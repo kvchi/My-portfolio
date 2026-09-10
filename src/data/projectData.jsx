@@ -1,46 +1,104 @@
-import { candle3, cleaningLady2, disney, hero, laundry, nexim } from "../assets/Images";
+import { candle3, cleaningLady2, disney, laundry, nexim } from "../assets/Images";
+
+export const featuredProject = {
+  id: "shopsphare",
+  title: "ShopSphare — Full-stack commerce application",
+  image: candle3,
+  imageWidth: 5849,
+  imageHeight: 3905,
+  imageAlt: "Candle product photography used in the OfferingsbyMK demonstration storefront",
+  summary: "A React/Vite commerce frontend backed by an Express REST API, with authenticated customer journeys, server-authoritative checkout, Paystack test payments, order history, receipts, password reset, and automated frontend and backend coverage.",
+  liveUrl: "https://offeringsby-mk.vercel.app/",
+  sourceUrl: "https://github.com/kvchi/OfferingsbyMk",
+  status: "Live portfolio demonstration · Paystack test mode",
+  role: "I designed and built the frontend, API, data layer, authentication, commerce flows, tests, and deployment configuration.",
+  sections: [
+    {
+      title: "Overview",
+      text: "ShopSphare is the software project. OfferingsbyMK is its demonstration storefront for a wellness and home-goods catalogue.",
+    },
+    {
+      title: "Frontend",
+      items: ["React + Vite", "Redux Toolkit", "Responsive interface and images", "Route-level splitting", "Accessibility-focused forms and interactions"],
+    },
+    {
+      title: "API and data",
+      items: ["Express REST API", "Prisma", "SQLite for local development", "Turso / libSQL for deployed data"],
+    },
+    {
+      title: "Authentication",
+      items: ["Registration, login, and logout", "Session restoration", "Secure forgot/reset-password flow", "Stale-session invalidation after reset", "Brevo transactional reset email"],
+    },
+    {
+      title: "Commerce",
+      items: ["Persistent cart and authenticated checkout", "Server-authoritative prices and totals", "Pending-order creation", "Paystack hosted test checkout", "Payment verification and signed webhooks", "My Orders, order details, and printable paid receipts"],
+    },
+    {
+      title: "Quality and deployment",
+      items: ["202 passing frontend tests", "57 backend tests · 259 automated tests overall", "Vercel frontend", "Render API", "Turso database", "Paystack test mode"],
+    },
+  ],
+};
 
 export const projectData = [
-    {
-        id:"1255",
-        title:"Nexim Bank Website",
-        image: nexim,
-        link: "https://nexim-website.vercel.app/",
-        external: true
-    },
-    {
-        id:"1237",
-        title:"Disney",
-        image: disney,
-        link: "https://disney-lyart.vercel.app/",
-        external: true
-    },
-    {
-        id:"1238",
-        title:"laund3omat",
-        image: laundry,
-        link: "https://laund3omat.vercel.app/",
-        external: true
-    },
-    {
-        id:"1239",
-        title:"PureHaven",
-        image: cleaningLady2,
-        link: "https://purehaven-ruddy.vercel.app/",
-        external: true
-    },
-    {
-        id:"1249",
-        title:"OfferingsbyMK",
-        image: candle3,
-        link: "https://offeringsby-mk.vercel.app/",
-        external: true
-    },
-    {
-        id:"1241",
-        title:"Ecocontractors",
-        image: hero,
-        link: "https://ecocontractorsltd.com/",
-        external: true
-    },
-]
+  {
+    id: "1255",
+    title: "Nexim Bank Website",
+    image: nexim,
+    imageWidth: 609,
+    imageHeight: 407,
+    imageAlt: "NEXIM intra-Africa trade graphic used in the website recreation",
+    purpose: "A responsive recreation of a public-facing banking website interface.",
+    role: "Built the frontend interface and responsive page structure.",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+    type: "Interface recreation",
+    status: "Live demo",
+    liveUrl: "https://nexim-website.vercel.app/",
+    sourceUrl: "https://github.com/kvchi/Nexim-Website",
+  },
+  {
+    id: "1237",
+    title: "Disney interface",
+    image: disney,
+    imageWidth: 3000,
+    imageHeight: 2250,
+    imageAlt: "Disney castle at night used in the streaming interface recreation",
+    purpose: "A frontend recreation used to practise responsive entertainment layouts and carousel interactions.",
+    role: "Built the React interface and responsive interactions.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Swiper"],
+    type: "Learning exercise · Interface recreation",
+    status: "Live demo",
+    liveUrl: "https://disney-lyart.vercel.app/",
+    sourceUrl: "https://github.com/kvchi/Disney",
+  },
+  {
+    id: "1238",
+    title: "Laund3omat",
+    image: laundry,
+    imageWidth: 5472,
+    imageHeight: 3648,
+    imageAlt: "Laundry service visual used in the Laund3omat project",
+    purpose: "A responsive service website exploring clear navigation and booking-oriented page content.",
+    role: "Built the React frontend and responsive layouts.",
+    technologies: ["React", "Vite", "Tailwind CSS"],
+    type: "Learning project",
+    status: "Live demo",
+    liveUrl: "https://laund3omat.vercel.app/",
+    sourceUrl: "https://github.com/kvchi/laund3omat",
+  },
+  {
+    id: "1239",
+    title: "PureHaven",
+    image: cleaningLady2,
+    imageWidth: 7990,
+    imageHeight: 5327,
+    imageAlt: "Home-cleaning service visual used in the PureHaven project",
+    purpose: "A home-cleaning service portfolio project with responsive service and booking interfaces.",
+    role: "Built the React frontend and an Express/MySQL API prototype.",
+    technologies: ["React", "Vite", "Express", "MySQL"],
+    type: "Portfolio project",
+    status: "Live frontend demo · API prototype not presented as deployed",
+    liveUrl: "https://purehaven-ruddy.vercel.app/",
+    sourceUrl: "https://github.com/kvchi/PureHaven",
+  },
+];

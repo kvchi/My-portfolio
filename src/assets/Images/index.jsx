@@ -13,10 +13,8 @@ import nexim from "./nexim.png"
 import cssLogo from "./cssLogo.png"
 import htmlLogo from "./htmlLogo.png"
 import javaScriptLogo from "./javaScriptLogo.png"
-import nextjs from "./nextjs.png"
 import reactLogo from "./reactLogo.png"
 import tailwindcss from "./tailwindcss.png"
-import hero from "./hero.png"
 
 export {
     coding,
@@ -34,8 +32,6 @@ export {
     cssLogo,
     htmlLogo,
     javaScriptLogo,
-    nextjs,
     reactLogo,
-    tailwindcss,
-    hero
+    tailwindcss
 }

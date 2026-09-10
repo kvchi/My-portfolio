@@ -11,7 +11,8 @@ export default function Footer() {
     <footer className="bg-primary py-8 sm:py-10 px-4 sm:px-6 relative">
       <img
         src={coding2}
-        alt="codes"
+        alt=""
+        aria-hidden="true"
         className="absolute left-0 top-0 w-full h-full object-cover opacity-15 scale-90 pointer-events-none"
       />
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative">
@@ -24,11 +25,8 @@ export default function Footer() {
         </Link>
         <p className="text-green-200 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
           {" "}
-          My expertise in ReactJS enables me to build seamless user experiences
-          and efficient front-end architectures. Additionally, My passion for
-          coding and continuous learning drives me to stay updated with the
-          latest trends and technologies in both frontend and backend web
-          development.
+          Frontend Developer focused on accessible, responsive React interfaces,
+          with demonstrated full-stack delivery through tested portfolio projects.
         </p>
         <div className="flex gap-4 text-lg md:text-2xl text-green-200 opacity-90">
           {socialLinkData.map((link) => (
