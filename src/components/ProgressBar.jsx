@@ -1,4 +1,5 @@
 import { cssLogo, htmlLogo, javaScriptLogo, reactLogo, tailwindcss } from "../assets/Images";
+import Reveal from "./Reveal";
 
 const skillGroups = [
   {
@@ -35,15 +36,15 @@ export default function ProgressBar({ Heading = "h2" }) {
         </div>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
-        {skillGroups.map((group) => (
-          <section key={group.title} className="rounded-lg border border-primary/15 bg-white/50 p-4 sm:p-5">
+        {skillGroups.map((group, index) => (
+          <Reveal as="section" key={group.title} delay={index * 70} className="rounded-lg border border-primary/15 bg-white/50 p-4 sm:p-5">
             <h3 className="font-bold text-primary mb-3">{group.title}</h3>
             <ul className="flex flex-wrap gap-2" aria-label={`${group.title} skills`}>
               {group.skills.map((skill) => (
                 <li key={skill} className="rounded-full bg-primary/10 text-primary px-3 py-1.5 text-sm font-medium">{skill}</li>
               ))}
             </ul>
-          </section>
+          </Reveal>
         ))}
       </div>
     </section>

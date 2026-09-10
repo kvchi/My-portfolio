@@ -27,6 +27,176 @@ html, body {
   outline-offset: 0.35rem;
 }
 
+.motion-reveal[data-motion-state="pending"] {
+  opacity: 0;
+  transform: translate3d(0, 0.875rem, 0);
+  will-change: opacity, transform;
+}
+
+.motion-reveal[data-reveal="fade-left"][data-motion-state="pending"] {
+  transform: translate3d(1rem, 0, 0);
+}
+
+.motion-reveal[data-reveal="fade-right"][data-motion-state="pending"] {
+  transform: translate3d(-1rem, 0, 0);
+}
+
+.motion-reveal[data-reveal="scale"][data-motion-state="pending"] {
+  transform: scale(1.025);
+}
+
+.motion-reveal[data-reveal="hero-visual"][data-motion-state="pending"] {
+  transform: scale(1.035);
+}
+
+.motion-reveal[data-reveal="header"][data-motion-state="pending"] {
+  transform: translate3d(0, -0.5rem, 0);
+}
+
+.motion-reveal[data-motion-state="revealed"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--reveal-duration, 520ms) cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform var(--reveal-duration, 520ms) cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+  will-change: auto;
+}
+
+.mobile-nav {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(0, -0.5rem, 0);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 0s linear 220ms;
+}
+
+.mobile-nav--open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 180ms ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.25rem;
+  left: 1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.motion-action,
+.project-card,
+.project-image,
+.action-arrow,
+.contact-action svg,
+.footer-action svg,
+.contact-card,
+.footer-link {
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+.motion-action {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+}
+
+.motion-action:active {
+  transform: translateY(1px);
+}
+
+.project-card,
+.contact-card {
+  transition-property: border-color, box-shadow;
+}
+
+.project-image,
+.action-arrow,
+.contact-action svg,
+.footer-action svg,
+.footer-link {
+  transition-property: transform;
+}
+
+.contact-motion-bg {
+  background:
+    radial-gradient(circle at 15% 25%, rgb(19 93 102 / 9%), transparent 34rem),
+    radial-gradient(circle at 85% 80%, rgb(15 118 110 / 8%), transparent 30rem),
+    #e3fef7;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .motion-reveal[data-reveal="fade-left"][data-motion-state="pending"],
+  .motion-reveal[data-reveal="fade-right"][data-motion-state="pending"] {
+    transform: translate3d(0, 0.875rem, 0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .motion-action:hover {
+    transform: translateY(-1px);
+  }
+
+  .project-card:hover {
+    border-color: rgb(19 93 102 / 38%);
+    box-shadow: 0 0.875rem 2rem rgb(0 60 67 / 12%);
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.03);
+  }
+
+  .project-action:hover .action-arrow,
+  .contact-action:hover svg,
+  .footer-action:hover svg {
+    transform: translateX(0.25rem);
+  }
+
+  .contact-card:hover {
+    border-color: rgb(19 93 102 / 30%);
+    box-shadow: 0 0.75rem 1.75rem rgb(0 60 67 / 10%);
+  }
+
+  .footer-link:hover {
+    transform: translateX(0.25rem);
+  }
+}
+
 .home-page > #projects {
   padding-top: 3rem;
 }
@@ -391,6 +561,39 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .motion-reveal,
+  .motion-reveal[data-motion-state="pending"],
+  .motion-reveal[data-motion-state="revealed"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .mobile-nav,
+  .nav-link,
+  .nav-link::after,
+  .motion-action,
+  .project-card,
+  .project-image,
+  .action-arrow,
+  .contact-card,
+  .footer-link,
+  .contact-action svg,
+  .footer-action svg {
+    transition: none;
+  }
+
+  .project-card:hover .project-image,
+  .motion-action:hover,
+  .motion-action:active,
+  .project-action:hover .action-arrow,
+  .contact-action:hover svg,
+  .footer-action:hover svg,
+  .footer-link:hover {
+    transform: none;
   }
 
   .what-i-do-card {

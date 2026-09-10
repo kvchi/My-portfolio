@@ -1,8 +1,4 @@
-import { useEffect } from 'react';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import AOS from 'aos';
-import "aos/dist/aos.css"
-
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
@@ -12,15 +8,6 @@ import Error from './pages/Error';
 import Projects from './pages/Projects';
 
 export default function App() {
-  useEffect(() => { 
-    AOS.init({
-      duration: 1000,
-      once: true,
-      delay: 500
-    })
-  }, [])
-
-
   function PageOutlet() {
     return (
       <>

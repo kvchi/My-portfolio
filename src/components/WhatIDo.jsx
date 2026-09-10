@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { IoCheckmark } from "react-icons/io5";
 import { whatIDoData } from "../data/whatIDoData";
+import Reveal from "./Reveal";
 
 function renderCardVisual(visual) {
   if (visual.type === "image") {
@@ -140,13 +141,13 @@ export default function WhatIDo() {
 
   return (
     <section id="what-i-do" className="what-i-do-section" aria-labelledby="what-i-do-heading">
-      <div className="what-i-do-heading-wrap">
+      <Reveal className="what-i-do-heading-wrap">
         <p className="what-i-do-eyebrow">What I do</p>
         <h2 id="what-i-do-heading" data-section-heading tabIndex="-1" className="section-heading-focus">I turn product ideas into dependable web experiences.</h2>
         <p>
           My work spans the interface, the supporting application flow, and the quality checks that help a project ship with confidence.
         </p>
-      </div>
+      </Reveal>
 
       <div className="what-i-do-stack">
         {whatIDoData.map((card, index) => (
