@@ -1,6 +1,8 @@
 import { featuredProject, projectData } from '../data/projectData'
 import { IoArrowForward } from 'react-icons/io5'
 import Reveal from '../components/Reveal'
+import OptimizedImage from '../components/OptimizedImage'
+import { imageSources } from '../data/imageSources'
 
 const actionClass = "min-h-11 inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
@@ -17,7 +19,7 @@ function renderProjectActions(title, liveUrl, sourceUrl, compact = false) {
   );
 }
 
-function renderProjects(Heading) {
+function renderProjects(Heading, prioritizeFeaturedImage = false) {
   const ProjectHeading = Heading === "h1" ? "h2" : "h3";
   const DetailHeading = Heading === "h1" ? "h3" : "h4";
 
@@ -33,7 +35,7 @@ function renderProjects(Heading) {
         <article className="mt-10 md:mt-14 overflow-hidden rounded-2xl border border-primary/15 bg-white/60 shadow-lg shadow-primary/10">
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <Reveal variant="fade-right" className="relative min-h-64 lg:min-h-full bg-primary/10 overflow-hidden">
-              <img src={featuredProject.image} width={featuredProject.imageWidth} height={featuredProject.imageHeight} alt={featuredProject.imageAlt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+              <OptimizedImage src={featuredProject.image} webpSrcSet={imageSources.projects.shopsphare.srcSet} sizes="(min-width: 1280px) 576px, (min-width: 1024px) 45vw, calc(100vw - 2rem)" pictureClassName="block h-full w-full" width={featuredProject.imageWidth} height={featuredProject.imageHeight} alt={featuredProject.imageAlt} loading={prioritizeFeaturedImage ? "eager" : "lazy"} decoding="async" fetchPriority={prioritizeFeaturedImage ? "high" : "auto"} className="absolute inset-0 h-full w-full object-cover" />
               <span className="absolute left-4 top-4 rounded-full bg-dark/90 px-3 py-2 text-sm font-bold text-green-100">Featured case study</span>
             </Reveal>
             <Reveal variant="fade-left" delay={70} className="p-5 sm:p-8 lg:p-10 text-primary">
@@ -67,7 +69,7 @@ function renderProjects(Heading) {
             {projectData.map((project, index) => (
               <Reveal as="article" key={project.id} delay={index * 70} className="project-card rounded-xl overflow-hidden border border-primary/15 bg-white/50 flex flex-col">
                 <div className="overflow-hidden">
-                  <img src={project.image} width={project.imageWidth} height={project.imageHeight} alt={project.imageAlt} loading="lazy" decoding="async" className="project-image w-full aspect-video object-cover" />
+                  <OptimizedImage src={project.image} webpSrcSet={imageSources.projects[project.id].srcSet} sizes="(min-width: 1280px) 616px, (min-width: 640px) calc(50vw - 2.5rem), calc(100vw - 2rem)" pictureClassName="block" width={project.imageWidth} height={project.imageHeight} alt={project.imageAlt} loading="lazy" decoding="async" className="project-image w-full aspect-video object-cover" />
                 </div>
                 <div className="p-5 sm:p-6 flex flex-col flex-1 text-left text-primary">
                   <div className="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wide">
@@ -91,10 +93,10 @@ function renderProjects(Heading) {
   )
 }
 
-export function ProjectsSection() {
-  return renderProjects("h2");
+export function ProjectsSection({ prioritizeImage = false }) {
+  return renderProjects("h2", prioritizeImage);
 }
 
 export default function Projects() {
-  return <main id="main-content" className="bg-backdrop z-0 min-h-screen">{renderProjects("h1")}</main>;
+  return <main id="main-content" className="bg-backdrop z-0 min-h-screen">{renderProjects("h1", true)}</main>;
 }

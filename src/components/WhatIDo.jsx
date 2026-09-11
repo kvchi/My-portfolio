@@ -2,13 +2,18 @@ import { useEffect, useRef } from "react";
 import { IoCheckmark } from "react-icons/io5";
 import { whatIDoData } from "../data/whatIDoData";
 import Reveal from "./Reveal";
+import OptimizedImage from "./OptimizedImage";
+import { imageSources } from "../data/imageSources";
 
 function renderCardVisual(visual) {
   if (visual.type === "image") {
     return (
       <figure className="what-i-do-visual what-i-do-image-frame">
-        <img
+        <OptimizedImage
           src={visual.src}
+          webpSrcSet={imageSources.projects["1255"].srcSet}
+          sizes="(min-width: 1024px) 50vw, (min-width: 640px) 480px, 256px"
+          pictureClassName="block"
           width={visual.width}
           height={visual.height}
           alt={visual.alt}
@@ -83,17 +88,21 @@ export default function WhatIDo() {
       const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
       const topGap = window.innerWidth < 640 ? 12 : 24;
       const preferredTop = headerHeight + topGap;
+      const cardMeasurements = cards.map((card) => ({
+        height: card.offsetHeight,
+        top: card.getBoundingClientRect().top,
+      }));
 
       cards.forEach((card, index) => {
-        const cardHeight = card.offsetHeight;
+        const cardHeight = cardMeasurements[index].height;
         const fullyReadableTop = window.innerHeight - cardHeight - topGap;
         const stickyTop = Math.min(preferredTop, fullyReadableTop);
         card.style.setProperty("--card-sticky-top", `${stickyTop}px`);
 
-        const nextCard = cards[index + 1];
-        if (!nextCard) return;
+        const nextCardMeasurement = cardMeasurements[index + 1];
+        if (!nextCardMeasurement) return;
 
-        const nextTop = nextCard.getBoundingClientRect().top;
+        const nextTop = nextCardMeasurement.top;
         const progress = Math.min(
           1,
           Math.max(0, (preferredTop + approachDistance - nextTop) / approachDistance),

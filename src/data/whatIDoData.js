@@ -1,4 +1,4 @@
-import { nexim } from "../assets/Images";
+import { imageSources } from "./imageSources";
 
 export const whatIDoData = [
   {
@@ -11,7 +11,7 @@ export const whatIDoData = [
     highlights: ["React interfaces", "Reusable components", "Accessible interaction"],
     visual: {
       type: "image",
-      src: nexim,
+      src: imageSources.projects["1255"].src,
       width: 609,
       height: 407,
       alt: "Nexim Bank website interface from my portfolio",

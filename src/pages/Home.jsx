@@ -1,7 +1,6 @@
 
 import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import code from '../assets/Images/code.jpg'
 import { AboutSection } from './About'
 import { ContactSection } from './Contact'
 import { ProjectsSection } from './Projects'
@@ -9,6 +8,8 @@ import { socialLinkData } from '../data/socialLinkData'
 import { featuredProject } from '../data/projectData'
 import WhatIDo from '../components/WhatIDo'
 import Reveal, { revealSection } from '../components/Reveal'
+import OptimizedImage from '../components/OptimizedImage'
+import { imageSources } from '../data/imageSources'
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
   const { hash, state, key } = useLocation()
   const githubLink = socialLinkData.find((link) => link.id === 'github')
   const skipHeroEntrance = Boolean(hash && hash !== '#home')
+  const prioritizeHero = !hash || hash === '#home'
 
   useLayoutEffect(() => {
     const sectionId = hash.slice(1)
@@ -50,7 +52,19 @@ export default function Home() {
     <main id="main-content" className="home-page bg-backdrop">
       <section id="home" aria-labelledby="home-heading" className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center py-16 sm:py-24 md:py-32 overflow-hidden">
         <Reveal as="div" variant="hero-visual" delay={280} immediate={skipHeroEntrance} aria-hidden="true" className="absolute inset-0">
-          <img src={code} width="3418" height="5137" alt="" className="w-full h-full object-cover opacity-40" />
+          <OptimizedImage
+            src={imageSources.hero.src}
+            webpSrcSet={imageSources.hero.srcSet}
+            sizes="100vw"
+            pictureClassName="block h-full w-full"
+            width="3418"
+            height="5137"
+            alt=""
+            loading={prioritizeHero ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority={prioritizeHero ? "high" : "low"}
+            className="h-full w-full object-cover opacity-40"
+          />
         </Reveal>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-dark/70 to-dark/90" aria-hidden="true" />
         <div className='relative z-10 text-center text-white max-w-4xl mx-auto px-4'>
@@ -75,7 +89,7 @@ export default function Home() {
       </section>
       <AboutSection />
       <WhatIDo />
-      <ProjectsSection />
+      <ProjectsSection prioritizeImage={hash === '#projects'} />
       <ContactSection />
   
       </main>

@@ -1,9 +1,9 @@
-import { candle3, cleaningLady2, disney, laundry, nexim } from "../assets/Images";
+import { imageSources } from "./imageSources";
 
 export const featuredProject = {
   id: "shopsphare",
   title: "ShopSphare — Full-stack commerce application",
-  image: candle3,
+  image: imageSources.projects.shopsphare.src,
   imageWidth: 5849,
   imageHeight: 3905,
   imageAlt: "Candle product photography used in the OfferingsbyMK demonstration storefront",
@@ -44,7 +44,7 @@ export const projectData = [
   {
     id: "1255",
     title: "Nexim Bank Website",
-    image: nexim,
+    image: imageSources.projects["1255"].src,
     imageWidth: 609,
     imageHeight: 407,
     imageAlt: "NEXIM intra-Africa trade graphic used in the website recreation",
@@ -59,7 +59,7 @@ export const projectData = [
   {
     id: "1237",
     title: "Disney interface",
-    image: disney,
+    image: imageSources.projects["1237"].src,
     imageWidth: 3000,
     imageHeight: 2250,
     imageAlt: "Disney castle at night used in the streaming interface recreation",
@@ -74,7 +74,7 @@ export const projectData = [
   {
     id: "1238",
     title: "Laund3omat",
-    image: laundry,
+    image: imageSources.projects["1238"].src,
     imageWidth: 5472,
     imageHeight: 3648,
     imageAlt: "Laundry service visual used in the Laund3omat project",
@@ -89,7 +89,7 @@ export const projectData = [
   {
     id: "1239",
     title: "PureHaven",
-    image: cleaningLady2,
+    image: imageSources.projects["1239"].src,
     imageWidth: 7990,
     imageHeight: 5327,
     imageAlt: "Home-cleaning service visual used in the PureHaven project",

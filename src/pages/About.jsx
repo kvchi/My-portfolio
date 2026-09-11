@@ -1,9 +1,10 @@
 
 import ProgressBar from "../components/ProgressBar";
-import { me } from "../assets/Images";
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import OptimizedImage from "../components/OptimizedImage";
+import { imageSources } from "../data/imageSources";
 
 function renderAbout(Heading) {
   const SkillsHeading = Heading === "h1" ? "h2" : "h3";
@@ -12,11 +13,17 @@ function renderAbout(Heading) {
     <section id="about" aria-labelledby="about-heading" className="bg-backdrop py-12 sm:py-16 md:py-20">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center container mx-auto px-4 sm:px-6">
         <Reveal variant="fade-right" className="w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-12 xl:ml-20 lg:w-auto lg:max-w-none">
-          <img
-            src={me}
+          <OptimizedImage
+            src={imageSources.portrait.src}
+            webpSrcSet={imageSources.portrait.srcSet}
+            sizes="(min-width: 1024px) 447px, (min-width: 640px) 448px, calc(100vw - 2rem)"
+            pictureClassName="block w-full"
             width="447"
             height="559"
             alt="Portrait of Jonathan Mkpuma"
+            loading={Heading === "h1" ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority="auto"
             className="object-cover bg-primary -scale-x-100 w-full shadow-lg rounded-lg"
           />
         </Reveal>

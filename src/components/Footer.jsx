@@ -1,21 +1,28 @@
 
-import { coding2 } from "../assets/Images";
 import { Link } from "react-router-dom";
 import { PiWebhooksLogoBold } from "react-icons/pi";
 import { footerLinkData } from "../data/footerLinkData";
 import { socialLinkData } from "../data/socialLinkData";
 import Reveal from "./Reveal";
+import OptimizedImage from "./OptimizedImage";
+import { imageSources } from "../data/imageSources";
 
 export default function Footer() {
   return (
     <footer className="bg-primary py-8 sm:py-10 px-4 sm:px-6 relative">
-      <img
-        src={coding2}
+      <OptimizedImage
+        src={imageSources.footer.src}
+        webpSrcSet={imageSources.footer.srcSet}
+        sizes="100vw"
+        pictureClassName="absolute inset-0 block h-full w-full scale-90 pointer-events-none"
         width="5760"
         height="3840"
         alt=""
         aria-hidden="true"
-        className="absolute left-0 top-0 w-full h-full object-cover opacity-10 scale-90 pointer-events-none"
+        loading="lazy"
+        decoding="async"
+        fetchPriority="low"
+        className="h-full w-full object-cover opacity-10"
       />
       <Reveal className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative">
         <div className="sm:col-span-2 flex flex-col gap-3 sm:gap-4">

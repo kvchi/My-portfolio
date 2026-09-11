@@ -1,5 +1,5 @@
-import { cssLogo, htmlLogo, javaScriptLogo, reactLogo, tailwindcss } from "../assets/Images";
 import Reveal from "./Reveal";
+import { imageSources } from "../data/imageSources";
 
 const skillGroups = [
   {
@@ -20,7 +20,13 @@ const skillGroups = [
   },
 ];
 
-const frontendIcons = [htmlLogo, cssLogo, javaScriptLogo, reactLogo, tailwindcss];
+const frontendIcons = [
+  imageSources.skills.html,
+  imageSources.skills.css,
+  imageSources.skills.javascript,
+  imageSources.skills.react,
+  imageSources.skills.tailwind,
+];
 
 // Heading is supplied by the parent so the embedded and standalone About views keep a logical hierarchy.
 // eslint-disable-next-line react/prop-types
@@ -33,7 +39,7 @@ export default function ProgressBar({ Heading = "h2" }) {
         <Heading id="skills-heading" className="text-2xl md:text-3xl font-bold text-primary">Skills backed by project work</Heading>
         <div className="hidden sm:flex -space-x-1" aria-hidden="true">
           {frontendIcons.map((icon) => (
-            <img key={icon} src={icon} alt="" width="32" height="32" className="w-8 h-8 object-contain bg-white rounded-full p-1 border border-primary/10" />
+            <img key={icon} src={icon} width="32" height="32" alt="" loading="lazy" decoding="async" className="w-8 h-8 object-contain bg-white rounded-full p-1 border border-primary/10" />
           ))}
         </div>
       </div>
