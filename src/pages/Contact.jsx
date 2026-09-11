@@ -1,9 +1,30 @@
+import { useRef, useState } from 'react'
 import { contactLinkData } from '../data/contactLinkData'
-import { socialLinkData } from '../data/socialLinkData'
+import { emailAddress, socialLinkData } from '../data/socialLinkData'
 import Reveal from '../components/Reveal'
 
 
-function renderContact(Heading, Subheading) {
+function useCopyEmailAddress() {
+  const [copyFeedback, setCopyFeedback] = useState(null)
+  const copyAttempt = useRef(0)
+
+  const copyEmailAddress = async () => {
+    const attempt = copyAttempt.current + 1
+    copyAttempt.current = attempt
+
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable')
+      await navigator.clipboard.writeText(emailAddress)
+      setCopyFeedback({ attempt, copied: true })
+    } catch {
+      setCopyFeedback({ attempt, copied: false })
+    }
+  }
+
+  return { copyEmailAddress, copyFeedback }
+}
+
+function renderContact(Heading, Subheading, copyEmailAddress, copyFeedback) {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="contact-motion-bg bg-backdrop">
        <div className='relative bg-backdrop flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6'>
@@ -46,6 +67,28 @@ function renderContact(Heading, Subheading) {
                 {link.newTab && <span className="sr-only"> (opens in a new tab)</span>}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={copyEmailAddress}
+              className="contact-action motion-action min-h-11 inline-flex items-center justify-center gap-2 bg-backdrop text-primary font-semibold px-5 py-3 rounded-md hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition"
+            >
+              Copy email address
+            </button>
+          </div>
+          <div
+            role="status"
+            aria-atomic="true"
+            className="mt-4 min-h-6 text-sm sm:text-base text-green-100"
+          >
+            {copyFeedback && (
+              <p key={copyFeedback.attempt}>
+                {copyFeedback.copied ? (
+                  'Email address copied'
+                ) : (
+                  <>Copy failed. Email address: <span className="font-semibold break-all">{emailAddress}</span>. Select and copy it manually.</>
+                )}
+              </p>
+            )}
           </div>
         </Reveal>
       </section>
@@ -54,9 +97,11 @@ function renderContact(Heading, Subheading) {
 }
 
 export function ContactSection() {
-  return renderContact("h2", "h3");
+  const { copyEmailAddress, copyFeedback } = useCopyEmailAddress()
+  return renderContact("h2", "h3", copyEmailAddress, copyFeedback);
 }
 
 export default function Contact() {
-  return <main id="main-content" className="bg-backdrop min-h-screen">{renderContact("h1", "h2")}</main>;
+  const { copyEmailAddress, copyFeedback } = useCopyEmailAddress()
+  return <main id="main-content" className="bg-backdrop min-h-screen">{renderContact("h1", "h2", copyEmailAddress, copyFeedback)}</main>;
 }

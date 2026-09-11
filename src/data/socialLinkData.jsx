@@ -1,6 +1,8 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 
+export const emailAddress = "Jonathanmkpuma4@gmail.com";
+
 export const socialLinkData = [
   {
     id: "github",
@@ -20,9 +22,9 @@ export const socialLinkData = [
   },
   {
     id: "email",
-    title: "Email me",
+    title: "Open email app",
     ariaLabel: "Email Jonathan Mkpuma (opens your email application)",
-    href: "mailto:Jonathanmkpuma4@gmail.com",
+    href: `mailto:${emailAddress}`,
     icon: <MdOutlineMail />,
     newTab: false,
   },
